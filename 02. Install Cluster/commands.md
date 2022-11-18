@@ -63,8 +63,10 @@
 
 ### Install pod network plugin
 
-##### download the manifest
-    wget "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')" -O "weave.yaml"
+##### download and install the manifest
+    kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+
+[Link to the Weave-net installation guide](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/#-installation)    
 
 ##### check weave net status
     kubectl exec -n kube-system weave-net-1jkl6 -c weave -- /home/weave/weave --local status
